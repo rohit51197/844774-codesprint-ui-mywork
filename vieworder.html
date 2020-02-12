@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- row1 for logo -->
+    <div class="row">
+        <div class="col">
+            <img src="https://image.flaticon.com/icons/svg/2477/2477899.svg" style="width:120px" height="100px">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- row2 for nav bar -->
+            <nav class="navbar navbar-expand-md bg-danger navbar-dark">
+                <!-- Brand -->
+                <a class="navbar-brand" href="index.html">GiftCard</a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse ml-auto justify-content-end" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="placeorder.html">Place Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vieworder.html">View Order</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- The sidebar starts-->
+
+    <!-- <div class="container-fluid"> -->
+    <div class="row no-gutters">
+        <div class="col-2 bg-danger text-center">
+            <ul class="nav flex-column ">
+                <li class="nav-item">
+                    <a class="nav-link text-light  active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light " href="placeorder.html">Place Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light " href="vieworder.html">View Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light " href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- The sidebar ends-->
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 mt-5">
+                    <div class="card ">
+                        <div class="card-header">
+                            <h3 class="text-xs-center"><strong>View Order</strong></h3>
+                        </div>
+                        <div class="card-block">
+                            <div class="table-responsive">
+                                <table id='display' class="table table-sm">
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            <!-- var i = 0; -->
+            var addCard = JSON.parse(sessionStorage.getItem('addCard'));
+            var size = addCard.length;
+			alert(size);
+            document.getElementById('display').innerHTML = "<thead><tr> <th>S.no</th> <th>Buyers Name </th> <th>Shipping Address </th> <th>City </th> <th> Amount</th> <th>Phone</th> </tr></thead>";
+            document.getElementById('display').innerHTML += "<tbody>";
+            for (i = 0; i < size; i++) {
+                var j = i + 1;
+                document.getElementById('display').innerHTML += "<tr><td>" + j + " </td><td>" + addCard[i].bfname + "</td><td>" + addCard[i].address + "</td><td>" + addCard[i].city + "</td><td>" + addCard[i].inr + "</td><td>" + addCard[i].phone + "</td></tr>";
+            }
+            document.getElementById('display').innerHTML += "</tbody>";
+
+        </script>
+
+</body>
+
+
+</html>
